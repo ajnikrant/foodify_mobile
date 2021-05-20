@@ -14,6 +14,12 @@ function MealShowPage(){
             <p>{mealDetail.description}</p>
             <p>Ingredients: {mealDetail.ingredients}</p>
             <p>${mealDetail.price}</p>
+            <button>+</button>
+            <input type="number" value="1" min="0" max="99"/>            
+            <button>-</button>
+            <br></br>
+            <button>Add to Cart</button>
+
         </div>
     )
 }

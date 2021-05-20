@@ -22,3 +22,17 @@ code {
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
+
+.homepage-image-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+.homepage-category {
+  width: 25%;
+  max-width: 350px;
+}
+.homepage-category img{
+  height: 300px;
+  width: 300px;
+}
