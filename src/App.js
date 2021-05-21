@@ -12,21 +12,53 @@ import MealShowPage from './MealShowPage';
 
 function App() {
       const [mealsArray, setMealsArray] = useState([])
+      const [currentCart, setCurrentCart] = useState({orders:[]})
 
-
+  // ************ Menu Functions ************
     useEffect(()=>{
         fetch('http://127.0.0.1:3000/meals')
         .then(r => r.json())
         .then(setMealsArray)
     }, [])
 
-    function sendHomePageCategory(category){
+
+    
+    // ************Cart Functions ************
+    useEffect(()=>{
+      fetch('http://127.0.0.1:3000/carts/1')
+      .then(r => r.json())
+      .then(setCurrentCart)
+      }, [])
+  
+
+      function removeDeleted(orderId){
+        const afterDelete = currentCart.orders.filter(order => {
+            if (order.id !== orderId) {
+              return order
+            }
+        })
+            setCurrentCart(currentCart => ({
+                ...currentCart, 
+                orders: afterDelete
+            }))
+      }
+
+      function sendNewOrderUp(newOrder){
+        // console.log(newOrder)
+        setCurrentCart({...currentCart, 
+          orders: [...currentCart.orders, newOrder]})
+      }
+
+
+ // ************ HomePage Functions ************
+      function sendHomePageCategory(category){
         console.log(category)
         const filteredMealsArray = mealsArray.filter(meal => meal.category == true)
-        console.log(filteredMealsArray)
+        // console.log(filteredMealsArray)
         // setMealsArray(filteredMealsArray)
     }
-  
+
+
 
   return (
     <div className="App">
@@ -41,10 +73,10 @@ function App() {
              <MealsContainer mealsArray={mealsArray}/>
            </Route>
           <Route path="/meals/:id">
-             <MealShowPage />
+             <MealShowPage sendNewOrderUp={sendNewOrderUp}/>
            </Route>
           <Route exact path="/cart/:id">
-             <Cart />
+             <Cart currentCart={currentCart} removeDeleted={removeDeleted}/>
            </Route>
        </Switch>
     </div>

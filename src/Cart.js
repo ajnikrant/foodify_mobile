@@ -1,30 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import OrderCards from './OrderCards';
 
-function Cart(){
-    const [currentCart, setCurrentCart] = useState({orders:[]})
-    console.log(currentCart)
-
-    useEffect(()=>{
-      fetch('http://127.0.0.1:3000/carts/1')
-      .then(r => r.json())
-      .then(setCurrentCart)
-      }, [])
-  
-      function removeDeleted(orderId){
-          console.log("ORDER ID", orderId)
-        const afterDelete = currentCart.orders.filter(order => {
-            if (order.id !== orderId) {
-              return order
-            }
-        })
-        // console.log(afterDelete)
-            setCurrentCart(currentCart => ({
-                ...currentCart, 
-                orders: afterDelete
-            }))
-        
-      }
+function Cart({currentCart, removeDeleted}){
 
     const renderMeals= currentCart.orders ? currentCart.orders.map(order => ( <OrderCards removeDeleted={removeDeleted} order={order}/>)) : "Loading Orders"
    
@@ -35,6 +12,9 @@ function Cart(){
             <div className="cart">
                 {renderMeals}
             </div>
+            <br></br>
+            <br></br>
+            <button>Checkout</button>
         </div>
     )
 

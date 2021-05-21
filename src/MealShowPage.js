@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 
-function MealShowPage(){
+function MealShowPage({sendNewOrderUp}){
     // const {description, id, image, ingredients, name, price} = meal
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
@@ -35,6 +35,8 @@ function MealShowPage(){
             },
             body: JSON.stringify(newOrder)
         })
+        .then(r => r.json())
+        .then(sendNewOrderUp)
 
         history.push("/cart/1")
 

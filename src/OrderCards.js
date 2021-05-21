@@ -6,29 +6,36 @@ function OrderCards({order, removeDeleted}){
 
     function handleQtyChange(e){
         if (e.target.name === "add"){
-            const newQty = orderQty + 1
-            setOrderQty(newQty)
+            setOrderQty(orderQty + 1)
+
+            fetch(`http://localhost:3000/orders/${id}`, {
+                method: "PATCH", 
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({mealqty: orderQty+1})
+            })
+
         }
         if(e.target.name === "subtract"){
             if (orderQty !== 1){
-                const newQty=orderQty-1
-                setOrderQty(newQty)
+                setOrderQty(orderQty-1)
             }
             else {setOrderQty(1)}
+            console.log("inside ",orderQty-1)
+        
+
+        fetch(`http://localhost:3000/orders/${id}`, {
+            method: "PATCH", 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({mealqty: orderQty-1})
+        })
         }
-        console.log("inside ",orderQty)
-
-        // fetch(`http://localhost:3000/orders/${id}`, {
-        //     method: "PATCH", 
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type' : 'application/json'
-        //     },
-        //     body: JSON.stringify({mealqty: orderQty+1})
-        // })
     }
-
-    console.log("outside",orderQty)
 
 
     function handleDelete(){
@@ -45,7 +52,7 @@ return(
         <img src={meal.image} />
         <li>Price/ea:{`$${meal.price}`}</li> 
 
-        <li>Quantity:{mealqty}</li>
+        {/* <li>Quantity:{mealqty}</li> */}
 
         <button onClick={handleQtyChange} name="subtract">-</button>
         <input type="text" value={orderQty}/>            
