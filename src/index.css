@@ -36,3 +36,24 @@ code {
   height: 300px;
   width: 300px;
 }
+
+/* .cart{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+} */
+
+.cartContainer h2{
+  text-align: center;
+}
+
+
+/* .orderCards {
+  width: 30%;
+  max-width: 350px;
+} */
+.orderCards img{
+  height: 300px;
+  width: 300px;
+
+}

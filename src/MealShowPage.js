@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 function MealShowPage(){
@@ -7,6 +8,8 @@ function MealShowPage(){
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
     const [mealQty, setMealQty] = useState(1)
+    const history = useHistory()
+
 
     function handleAddQty(){
         setMealQty(mealQty + 1)
@@ -19,18 +22,21 @@ function MealShowPage(){
 
     function handleAddToCart(){
         const newOrder={
-            meal_id: mealDetail.id,
-            cart_id: 1, 
-            mealqty: mealQty
+            meal_id: Number(mealDetail.id),
+            cart_id: Number(1), 
+            mealqty: Number(mealQty)
         }
 
         fetch("http://localhost:3000/orders", {
             method: "POST", 
-            headers: {'Content-Type' : 'application/json'},
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type' : 'application/json'
+            },
             body: JSON.stringify(newOrder)
         })
-        // .then(r => r.json())
-        // .then(sendNewItemUp)
+
+        history.push("/cart/1")
 
     }
 
@@ -46,7 +52,6 @@ function MealShowPage(){
             <button onClick={handleAddQty}>+</button>
             <br></br>
             <button onClick={handleAddToCart}>Add to Cart</button>
-
         </div>
     )
 }

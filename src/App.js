@@ -26,8 +26,6 @@ function App() {
         console.log(filteredMealsArray)
         // setMealsArray(filteredMealsArray)
     }
-
-
   
 
   return (
@@ -43,7 +41,7 @@ function App() {
              <MealsContainer mealsArray={mealsArray}/>
            </Route>
           <Route path="/meals/:id">
-             <MealShowPage/>
+             <MealShowPage />
            </Route>
           <Route exact path="/cart/:id">
              <Cart />
