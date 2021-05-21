@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useLocation } from 'react-router-dom'
 
 
@@ -6,6 +6,33 @@ function MealShowPage(){
     // const {description, id, image, ingredients, name, price} = meal
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
+    const [mealQty, setMealQty] = useState(1)
+
+    function handleAddQty(){
+        setMealQty(mealQty + 1)
+    }
+    function handleSubtractQty(){
+        if (mealQty !== 1)
+        {setMealQty(mealQty - 1)}
+        else {return mealQty}
+    }
+
+    function handleAddToCart(){
+        const newOrder={
+            meal_id: mealDetail.id,
+            cart_id: 1, 
+            mealqty: mealQty
+        }
+
+        fetch("http://localhost:3000/orders", {
+            method: "POST", 
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify(newOrder)
+        })
+        // .then(r => r.json())
+        // .then(sendNewItemUp)
+
+    }
 
     return (
         <div>
@@ -14,11 +41,11 @@ function MealShowPage(){
             <p>{mealDetail.description}</p>
             <p>Ingredients: {mealDetail.ingredients}</p>
             <p>${mealDetail.price}</p>
-            <button>+</button>
-            <input type="number" value="1" min="0" max="99"/>            
-            <button>-</button>
+            <button onClick={handleSubtractQty}>-</button>
+            <input type="text" value={mealQty}/>            
+            <button onClick={handleAddQty}>+</button>
             <br></br>
-            <button>Add to Cart</button>
+            <button onClick={handleAddToCart}>Add to Cart</button>
 
         </div>
     )

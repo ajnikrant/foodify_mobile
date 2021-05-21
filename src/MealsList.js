@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+// import React, {useEffect, useState} from 'react';
 
-function MealsList(){
+// function MealsList(){
 
-}
+// }
 
-export default MealsList
+// export default MealsList

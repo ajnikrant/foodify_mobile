@@ -11,6 +11,22 @@ import MealShowPage from './MealShowPage';
 
 
 function App() {
+      const [mealsArray, setMealsArray] = useState([])
+
+
+    useEffect(()=>{
+        fetch('http://127.0.0.1:3000/meals')
+        .then(r => r.json())
+        .then(setMealsArray)
+    }, [])
+
+    function sendHomePageCategory(category){
+        console.log(category)
+        const filteredMealsArray = mealsArray.filter(meal => meal.category == true)
+        console.log(filteredMealsArray)
+        // setMealsArray(filteredMealsArray)
+    }
+
 
   
 
@@ -21,10 +37,10 @@ function App() {
          <Search />
          <Switch>
            <Route exact path="/">
-             <Homepage />
+             <Homepage sendHomePageCategory={sendHomePageCategory}/>
            </Route>
           <Route exact path="/meals">
-             <MealsContainer/>
+             <MealsContainer mealsArray={mealsArray}/>
            </Route>
           <Route path="/meals/:id">
              <MealShowPage/>

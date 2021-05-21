@@ -10,13 +10,6 @@ function Cart(){
       }, [])
   
 
-    console.log("CART",currentCart)
-    console.log("orders",currentCart.orders)
-    // console.log("meals",currentCart.meals)
-
-    // const renderMealOrders = currentCart.map(cart => cart.orders)
-
-
     const renderMeals= currentCart.orders.map(order => {return (
         <>
         <br></br>
@@ -29,7 +22,6 @@ function Cart(){
         )}
     )
    
-
 
     return(
         <div className="cart">
