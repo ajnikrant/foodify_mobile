@@ -13,6 +13,10 @@ import MealShowPage from './MealShowPage';
 function App() {
       const [mealsArray, setMealsArray] = useState([])
       const [currentCart, setCurrentCart] = useState({orders:[]})
+      const [mealPrice, setMealPrice] = useState(0)
+
+      // const priceTimesQty = currentCart.orders&& currentCart.orders.map(order => (order.meal.price * order.mealqty))
+      // setMealPrice(priceTimesQty)
 
   // ************ Menu Functions ************
     useEffect(()=>{
@@ -49,6 +53,11 @@ function App() {
           orders: [...currentCart.orders, newOrder]})
       }
 
+      const priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty) : 0
+      const finalTotal = priceTimesQty ? priceTimesQty.reduce(function(a, b){return a + b;}, 0) : 0
+  
+      const[priceChange, setPriceChange] = useState(finalTotal)
+  
 
  // ************ HomePage Functions ************
       function sendHomePageCategory(category){
@@ -73,10 +82,10 @@ function App() {
              <MealsContainer mealsArray={mealsArray}/>
            </Route>
           <Route path="/meals/:id">
-             <MealShowPage sendNewOrderUp={sendNewOrderUp}/>
+             <MealShowPage setPriceChange={setPriceChange} priceChange={priceChange} sendNewOrderUp={sendNewOrderUp}/>
            </Route>
           <Route exact path="/cart/:id">
-             <Cart currentCart={currentCart} removeDeleted={removeDeleted}/>
+             <Cart priceChange={priceChange} setPriceChange={setPriceChange} mealPrice={mealPrice} currentCart={currentCart} removeDeleted={removeDeleted}/>
            </Route>
        </Switch>
     </div>

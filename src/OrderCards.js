@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 
-function OrderCards({order, removeDeleted}){
+function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
     const {id, meal_id, meal, mealqty, image} = order
     const [orderQty, setOrderQty] = useState(mealqty)
 
     function handleQtyChange(e){
         if (e.target.name === "add"){
             setOrderQty(orderQty + 1)
+            setPriceChange(priceChange + meal.price)
 
             fetch(`http://localhost:3000/orders/${id}`, {
                 method: "PATCH", 
@@ -21,9 +22,11 @@ function OrderCards({order, removeDeleted}){
         if(e.target.name === "subtract"){
             if (orderQty !== 1){
                 setOrderQty(orderQty-1)
+                setPriceChange(priceChange - meal.price)
+
+
             }
             else {setOrderQty(1)}
-            console.log("inside ",orderQty-1)
         
 
         fetch(`http://localhost:3000/orders/${id}`, {

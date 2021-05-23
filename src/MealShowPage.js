@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 
-function MealShowPage({sendNewOrderUp}){
+function MealShowPage({sendNewOrderUp, setPriceChange, priceChange}){
     // const {description, id, image, ingredients, name, price} = meal
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
@@ -37,6 +37,9 @@ function MealShowPage({sendNewOrderUp}){
         })
         .then(r => r.json())
         .then(sendNewOrderUp)
+
+        setPriceChange(priceChange + (mealDetail.price * mealQty))
+
 
         history.push("/cart/1")
 
