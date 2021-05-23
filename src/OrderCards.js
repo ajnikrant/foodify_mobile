@@ -15,7 +15,7 @@ function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
                     'Accept': 'application/json',
                     'Content-Type' : 'application/json'
                 },
-                body: JSON.stringify({mealqty: orderQty+1})
+                body: JSON.stringify({mealqty: orderQty+1,})
             })
 
         }
@@ -28,7 +28,6 @@ function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
             }
             else {setOrderQty(1)}
         
-
         fetch(`http://localhost:3000/orders/${id}`, {
             method: "PATCH", 
             headers: {
@@ -45,6 +44,7 @@ function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
         fetch(`http://localhost:3000/orders/${id}`, {
             method: 'DELETE'
         })
+        setPriceChange(priceChange - (meal.price * orderQty))
         removeDeleted(id)
     }
 
@@ -61,7 +61,8 @@ return(
         <input type="text" value={orderQty}/>            
         <button onClick={handleQtyChange} name="add">+</button>
 
-        <li>Subtotal:{`$${meal.price * orderQty}`}</li>
+        <li>Item Subtotal: {`$${meal.price * orderQty}`}</li>
+        <br></br>
         <button onClick={handleDelete}>X</button>
         <br></br>
     </div>

@@ -24,9 +24,11 @@ function MealShowPage({sendNewOrderUp, setPriceChange, priceChange}){
         const newOrder={
             meal_id: Number(mealDetail.id),
             cart_id: Number(1), 
-            mealqty: Number(mealQty)
+            mealqty: Number(mealQty),
+            subtotal: Number(priceChange + (mealDetail.price * mealQty))
         }
 
+        console.log(newOrder)
         fetch("http://localhost:3000/orders", {
             method: "POST", 
             headers: {

@@ -1,11 +1,12 @@
 import React from 'react';
 
-function CartCheckout(){
+function CartCheckout({priceChange}){
+    const tax=1.43
     return(
         <form class="row g-3">
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Subtotal</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Subtotal"/>
+                <input type="text" class="form-control" id="inputAddress" value={`$${priceChange}.00`}/>
             </div>
             {/* <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Card Number</label>
@@ -17,11 +18,11 @@ function CartCheckout(){
             </div> */}
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Tax</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Tax" value="$1.43"/>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Tax" value={`$${tax}`}/>
             </div>
             <div class="col-12">
-                <label for="inputAddress2" class="form-label">Total</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Total"/>
+                <label for="inputAddress2" class="form-label">Final Total</label>
+                <input type="text" class="form-control" id="inputAddress2" value={`$${priceChange + tax}`}/>
             </div>
             {/* <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>

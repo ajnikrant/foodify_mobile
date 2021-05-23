@@ -48,16 +48,26 @@ function App() {
       }
 
       function sendNewOrderUp(newOrder){
-        // console.log(newOrder)
         setCurrentCart({...currentCart, 
           orders: [...currentCart.orders, newOrder]})
       }
 
-      const priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty) : 0
-      const finalTotal = priceTimesQty ? priceTimesQty.reduce(function(a, b){return a + b;}, 0) : 0
   
-      const[priceChange, setPriceChange] = useState(finalTotal)
-  
+      const[priceChange, setPriceChange] = useState(0)
+
+      // useEffect(()=>{
+
+      //   console.log(`you have bought ${priceChange} amount of food`)
+      //   fetch(`http://localhost:3000/carts/1`, {
+      //     method: "PATCH", 
+      //     headers: {
+      //       'Accept': 'application/json',
+      //       'Content-Type' : 'application/json'
+      //   },
+      //   body: JSON.stringify({subtotal: {priceChange}})
+
+      //   })
+      // }, [priceChange])
 
  // ************ HomePage Functions ************
       function sendHomePageCategory(category){
