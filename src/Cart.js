@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import CartCheckout from './CartCheckout';
 import OrderCards from './OrderCards';
-// import { useEffect } from 'react';
 
 function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
     
@@ -9,12 +8,8 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
 
      useEffect(()=>{
-         
         setPriceChange(priceTimesQty)
-  
     },[currentCart.orders])
-    // setPriceChange(priceTimesQty)
-    // console.log(mealPrice)
 
     return(
         <div className="cartContainer">
