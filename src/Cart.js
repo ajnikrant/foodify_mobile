@@ -1,13 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CartCheckout from './CartCheckout';
 import OrderCards from './OrderCards';
+// import { useEffect } from 'react';
 
-function Cart({currentCart, removeDeleted, mealPrice, priceChange, setPriceChange}){
+function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
+    
     const renderMeals= currentCart.orders ? currentCart.orders.map(order => ( <OrderCards priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Loading Orders"
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
-    // setPriceChange (currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0)
-    setPriceChange(priceTimesQty)
-    console.log("top of cart",priceChange)
+
+     useEffect(()=>{
+         
+        setPriceChange(priceTimesQty)
+  
+    },[currentCart.orders])
+    // setPriceChange(priceTimesQty)
+    // console.log(mealPrice)
 
     return(
         <div className="cartContainer">

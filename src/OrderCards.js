@@ -22,7 +22,7 @@ function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
         if(e.target.name === "subtract"){
             if (orderQty !== 1){
                 setOrderQty(orderQty-1)
-                setPriceChange(priceChange - meal.price)
+                setPriceChange(priceChange - (meal.price))
 
 
             }

@@ -13,7 +13,9 @@ import MealShowPage from './MealShowPage';
 function App() {
       const [mealsArray, setMealsArray] = useState([])
       const [currentCart, setCurrentCart] = useState({orders:[]})
-      const [mealPrice, setMealPrice] = useState(0)
+      // const [mealPrice, setMealPrice] = useState(0)
+      const[priceChange, setPriceChange] = useState(0)
+
 
       // const priceTimesQty = currentCart.orders&& currentCart.orders.map(order => (order.meal.price * order.mealqty))
       // setMealPrice(priceTimesQty)
@@ -53,7 +55,6 @@ function App() {
       }
 
   
-      const[priceChange, setPriceChange] = useState(0)
 
  // ************ HomePage Functions ************
       function sendHomePageCategory(category){
@@ -81,7 +82,7 @@ function App() {
              <MealShowPage setPriceChange={setPriceChange} priceChange={priceChange} sendNewOrderUp={sendNewOrderUp}/>
            </Route>
           <Route exact path="/cart/:id">
-             <Cart priceChange={priceChange} setPriceChange={setPriceChange} mealPrice={mealPrice} currentCart={currentCart} removeDeleted={removeDeleted}/>
+             <Cart priceChange={priceChange} setPriceChange={setPriceChange} currentCart={currentCart} removeDeleted={removeDeleted}/>
            </Route>
        </Switch>
     </div>
