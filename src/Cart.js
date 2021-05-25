@@ -12,7 +12,7 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
     console.log("database subtotal",currentCart.subtotal)
     console.log("checked out",currentCart.checkedout)
 
-    const renderMeals= currentCart.orders ? currentCart.orders.map(order => ( <OrderCards key={order.id} priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Loading Orders"
+    const renderMeals= currentCart.orders.length > 0 ? currentCart.orders.map(order => ( <OrderCards key={order.id} priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Looks Like your Cart is Empty"
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
 
      useEffect(()=>{
@@ -64,7 +64,7 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
                 Subtotal: {`$${priceChange}.00`}
                 </div>
                 <br></br>
-                <button onClick={handleClick} className="btn btn-primary">Back to Menu</button>
+                <button onClick={handleClick} className="btn btn-primary">Go to Menu</button>
                 <br></br>
                 <br></br>
                 <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Checkout</button>
