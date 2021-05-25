@@ -13,16 +13,10 @@ import MealShowPage from './MealShowPage';
 function App() {
       const [mealsArray, setMealsArray] = useState([])
       const [currentCart, setCurrentCart] = useState({orders:[]})
-      // const [mealPrice, setMealPrice] = useState(0)
       const[priceChange, setPriceChange] = useState(0)
       const [homepageCategory, setHomepageCategory] = useState('all')
       const [search, setSearch] = useState("")
       const [allergenSearch, setAllergenSearch] = useState("")
-      // const [cardColor, setCardColor] = useState(false)
-
-
-      // const priceTimesQty = currentCart.orders&& currentCart.orders.map(order => (order.meal.price * order.mealqty))
-      // setMealPrice(priceTimesQty)
 
   // ************ Menu Functions ************
     useEffect(()=>{
@@ -32,10 +26,16 @@ function App() {
     }, [])
 
 
+  // ************ Fetching User ************
+    // useEffect(()=>{
+    //     fetch('http://127.0.0.1:3000/users/1')
+    //     .then(r => r.json())
+    //     .then(setMealsArray)
+    // }, [])
     
     // ************Cart Functions ************
     useEffect(()=>{
-      fetch('http://127.0.0.1:3000/carts/1')
+      fetch(`http://127.0.0.1:3000/carts/1`)
       .then(r => r.json())
       .then(setCurrentCart)
       }, [])
@@ -124,13 +124,21 @@ function App() {
              <Homepage setHomepageCategory={setHomepageCategory}/>
            </Route>
           <Route exact path="/meals">
-             <MealsContainer allergenSearch={allergenSearch} setAllergenSearch={setAllergenSearch} search={search} setSearch={setSearch} setHomepageCategory={setHomepageCategory} mealsArray={homepageFiltering()}/>
+             <MealsContainer allergenSearch={allergenSearch} 
+              setAllergenSearch={setAllergenSearch} search={search} 
+              setSearch={setSearch} 
+              setHomepageCategory={setHomepageCategory} 
+              mealsArray={homepageFiltering()}/>
            </Route>
           <Route path="/meals/:id">
              <MealShowPage setPriceChange={setPriceChange} priceChange={priceChange} sendNewOrderUp={sendNewOrderUp}/>
            </Route>
           <Route exact path="/cart/:id">
-             <Cart priceChange={priceChange} setPriceChange={setPriceChange} currentCart={currentCart} removeDeleted={removeDeleted}/>
+             <Cart
+             priceChange={priceChange} 
+             setPriceChange={setPriceChange} 
+             currentCart={currentCart} 
+             removeDeleted={removeDeleted}/>
            </Route>
        </Switch>
     </div>

@@ -43,7 +43,7 @@ function MealShowPage({sendNewOrderUp, setPriceChange, priceChange}){
         setPriceChange(priceChange + (mealDetail.price * mealQty))
 
 
-        history.push("/cart/1")
+        history.push("/cart/:id")
 
     }
 

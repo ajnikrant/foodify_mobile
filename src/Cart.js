@@ -8,27 +8,40 @@ import { useHistory } from 'react-router-dom'
 function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
     const [checkedOut, setCheckedOut] = useState(true)
     const history = useHistory()
-
     
-    const renderMeals= currentCart.orders ? currentCart.orders.map(order => ( <OrderCards priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Loading Orders"
+    console.log("database subtotal",currentCart.subtotal)
+    console.log("checked out",currentCart.checkedout)
+
+    const renderMeals= currentCart.orders ? currentCart.orders.map(order => ( <OrderCards key={order.id} priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Loading Orders"
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
 
      useEffect(()=>{
         setPriceChange(priceTimesQty)
     },[currentCart.orders])
 
-    function handleCheckout(){
+    function handleCheckout(e, finalTotal){
         // e.preventDefault()
         // console.log(currentCart.orders[0].meal.id)
         setCheckedOut(false)
+        
+        let total= parseFloat(finalTotal)
 
-        currentCart.orders.map(order => {
-            fetch(`http://localhost:3000/orders/${order.id}`, {
-            method: 'DELETE'
+        fetch(`http://localhost:3000/carts/1`, {
+            method: "PATCH", 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({checkedout: true, subtotal: total})
         })
-        setPriceChange(priceChange - (order.meal.price * order.mealqty))
-        removeDeleted(order.id)
-        })
+
+        // currentCart.orders.map(order => {
+        //     fetch(`http://localhost:3000/orders/${order.id}`, {
+        //     method: 'DELETE'
+        // })
+        // setPriceChange(priceChange - (order.meal.price * order.mealqty))
+        // removeDeleted(order.id)
+        // })
     }
 
     function handleClick(){
@@ -48,7 +61,7 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
                 </div>
                 <br></br>
                 <div className="price-section">
-                Subtotal: {`$${priceChange}`}
+                Subtotal: {`$${priceChange}.00`}
                 </div>
                 <br></br>
                 <button onClick={handleClick} className="btn btn-primary">Back to Menu</button>

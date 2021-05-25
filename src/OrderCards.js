@@ -53,15 +53,12 @@ return(
         <br></br>
         <h6>{meal.name}</h6>
         <img src={meal.image} />
-        <li>Price/ea:{`$${meal.price}`}</li> 
-
-        {/* <li>Quantity:{mealqty}</li> */}
-
+        <li>Price/ea:{`$${meal.price}.00`}</li> 
         <button onClick={handleQtyChange} name="subtract">-</button>
         <input type="text" value={orderQty}/>            
         <button onClick={handleQtyChange} name="add">+</button>
 
-        <li>Item Subtotal: {`$${meal.price * orderQty}`}</li>
+        <li>Item Subtotal: {`$${meal.price * orderQty}.00`}</li>
         <br></br>
         <button onClick={handleDelete}>X</button>
         <br></br>
