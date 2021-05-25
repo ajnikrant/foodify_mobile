@@ -2,9 +2,13 @@ import React, {useState, useEffect} from 'react';
 import CartCheckout from './CartCheckout';
 import EmptyCartMesage from './EmptyCartMessage';
 import OrderCards from './OrderCards';
+import { useHistory } from 'react-router-dom'
+
 
 function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
     const [checkedOut, setCheckedOut] = useState(true)
+    const history = useHistory()
+
     
     const renderMeals= currentCart.orders ? currentCart.orders.map(order => ( <OrderCards priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Loading Orders"
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
@@ -26,6 +30,11 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
         removeDeleted(order.id)
         })
     }
+
+    function handleClick(){
+        history.push("/meals")
+    }
+
     
 
     return(
@@ -41,6 +50,9 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
                 <div className="price-section">
                 Subtotal: {`$${priceChange}`}
                 </div>
+                <br></br>
+                <button onClick={handleClick} className="btn btn-primary">Back to Menu</button>
+                <br></br>
                 <br></br>
                 <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Checkout</button>
 
