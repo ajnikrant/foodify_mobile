@@ -16,10 +16,10 @@ function Navbar(){
               <li className="nav-item">
                <NavLink className="nav-link" to="/cart/:id" exact> See Your Cart </NavLink>
               </li>
-            <form className="d-flex">
+            {/* <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </form> */}
             </ul>
           </div>
         </div>

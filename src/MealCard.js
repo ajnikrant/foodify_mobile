@@ -32,17 +32,7 @@ function MealCard({meal, allergenSearch}){
 
     useEffect(()=> {
         highlightAllergens()
-    }, [allergenSearch])
-    // }, [allergenSearch])
-
-        // if (ingredients.toLowerCase().includes(allergenSearch.toLowerCase())){
-        //   console.log("MATCH")
-        // //   setCardColor(true)
-        // //   console.log(allergenSearch)
-        // }
-    
-      
-     
+    }, [allergenSearch])    
 
     return(
         <div className={cardColor? "card text-white bg-danger mb-3" : "card text-dark bg-light mb-3"} style={{ width: '18rem' }} onClick={handleCardClick}>
