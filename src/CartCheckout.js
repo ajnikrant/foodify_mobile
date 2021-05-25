@@ -1,54 +1,54 @@
 import React from 'react';
 
-function CartCheckout({priceChange}){
+function CartCheckout({priceChange, handleCheckout}){
     const tax=1.43
     return(
-        <form class="row g-3">
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Subtotal</label>
-                <input type="text" class="form-control" id="inputAddress" value={`$${priceChange}.00`}/>
+        <form className="row g-3" onSubmit={handleCheckout} >
+            <div className="col-12">
+                <label for="inputAddress" className="form-label">Subtotal</label>
+                <input type="text" className="form-control" id="inputAddress" value={`$${priceChange}.00`}/>
             </div>
-            {/* <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Card Number</label>
-                <input type="email" class="form-control" id="inputEmail4"/>
+            {/* <div className="col-md-6">
+                <label for="inputEmail4" className="form-label">Card Number</label>
+                <input type="email" className="form-control" id="inputEmail4"/>
             </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Exp</label>
-                <input type="password" class="form-control" id="inputPassword4"/>
+            <div className="col-md-6">
+                <label for="inputPassword4" className="form-label">Exp</label>
+                <input type="password" className="form-control" id="inputPassword4"/>
             </div> */}
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Tax</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Tax" value={`$${tax}`}/>
+            <div className="col-12">
+                <label for="inputAddress" className="form-label">Tax</label>
+                <input type="text" className="form-control" id="inputAddress" placeholder="Tax" value={`$${tax}`}/>
             </div>
-            <div class="col-12">
-                <label for="inputAddress2" class="form-label">Final Total</label>
-                <input type="text" class="form-control" id="inputAddress2" value={`$${priceChange + tax}`}/>
+            <div className="col-12">
+                <label for="inputAddress2" className="form-label">Final Total</label>
+                <input type="text" className="form-control" id="inputAddress2" value={`$${priceChange + tax}`}/>
             </div>
-            {/* <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity"/>
+            {/* <div className="col-md-6">
+                <label for="inputCity" className="form-label">City</label>
+                <input type="text" className="form-control" id="inputCity"/>
             </div>
-            <div class="col-md-4">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
+            <div className="col-md-4">
+                <label for="inputState" className="form-label">State</label>
+                <select id="inputState" className="form-select">
                     <option selected>Choose...</option>
                     <option>...</option>
                 </select>
             </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip"/>
+            <div className="col-md-2">
+                <label for="inputZip" className="form-label">Zip</label>
+                <input type="text" className="form-control" id="inputZip"/>
             </div>
-            <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck"/>
-                <label class="form-check-label" for="gridCheck">
+            <div className="col-12">
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" id="gridCheck"/>
+                <label className="form-check-label" for="gridCheck">
                 Check me out
                 </label>
             </div>
             </div> */}
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Complete Purchase</button>
+            <div className="col-12">
+                <button type="submit" className="btn btn-primary">Complete Purchase</button>
             </div>
       </form>
     )

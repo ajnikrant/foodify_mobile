@@ -65,13 +65,6 @@ function App() {
         if (homepageCategory === "glutenfree"){
           const filteredMenu = mealsArray.filter(meal => meal.glutenfree === true)
           .filter((meal) => meal.ingredients.toLowerCase().includes(search.toLowerCase()))
-          // .filter((meal) => {
-          //   if (meal.ingredients.toLowerCase().includes(allergenSearch.toLowerCase())){
-          //     setCardColor(true)
-          //     return meal
-          //   }
-          //   else {return meal}
-          // })
              return (filteredMenu)
         }
         else if (homepageCategory === "vegetarian"){
