@@ -95,7 +95,8 @@ function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, se
                 </>
             : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
             <div className="previousP container">
-            {renderPreviousPurchases}
+                <h5>Previous Purchases</h5>
+                {renderPreviousPurchases}
             </div>
         </div>
     )
