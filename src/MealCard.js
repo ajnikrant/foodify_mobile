@@ -23,9 +23,6 @@ function MealCard({meal, allergenSearch}){
 
         else if (ingredients.toLowerCase().includes(allergenSearch.toLowerCase())){
                 setCardColor(true)
-                console.log(allergenSearch)
-                console.log("allergen search in meal card", allergenSearch)
-                
         }
         else {setCardColor(false)}
     }

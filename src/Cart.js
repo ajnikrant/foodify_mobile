@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import PreviousPurchases from './PreviousPurchases';
 
 
-function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, setPriceChange}){
+function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted, priceChange, setPriceChange}){
     const [checkedOut, setCheckedOut] = useState(true)
     const history = useHistory()
     
@@ -15,18 +15,12 @@ function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, se
 
     const renderPreviousPurchases = userCarts.filter(cart => cart.checkedout===true).map(cart => <PreviousPurchases key={cart.id} cart={cart}/>)
 
-    console.log("curent cart",currentCart.id)
-    console.log("user cart state",userCarts)
-    console.log("filter",renderPreviousPurchases)
-
-
      useEffect(()=>{
         setPriceChange(priceTimesQty)
     },[currentCart.orders])
 
     function handleCheckout(e, finalTotal){
         // e.preventDefault()
-        // console.log(currentCart.orders[0].meal.id)
         setCheckedOut(false)
         
         let total= parseFloat(finalTotal)
@@ -39,7 +33,7 @@ function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, se
             },
             body: JSON.stringify({checkedout: true, subtotal: total})
         })
-        
+
             const newCart ={
                 user_id: 1,
                 checkedout: false, 
@@ -55,7 +49,7 @@ function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, se
                 body: JSON.stringify(newCart)
             })
             .then(r => r.json())
-            .then(console.log)
+            .then(setCurrentCart)
     }
 
     function handleClick(){
@@ -95,7 +89,9 @@ function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, se
                 </>
             : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
             <div className="previousP container">
+                <br></br>
                 <h5>Previous Purchases</h5>
+                <br></br>
                 {renderPreviousPurchases}
             </div>
         </div>

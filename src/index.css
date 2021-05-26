@@ -58,3 +58,15 @@ code {
   width: 300px;
 
 }
+
+.prevOrderCard img{
+  height: 100xpx;
+  width: 100px;
+}
+
+.prevOrderCard{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+}

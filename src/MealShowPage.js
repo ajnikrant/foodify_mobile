@@ -20,8 +20,6 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
         else {return mealQty}
     }
 
-    console.log("meal show page", cartIndex)
-
     function handleAddToCart(){
         const newOrder={
             meal_id: Number(mealDetail.id),

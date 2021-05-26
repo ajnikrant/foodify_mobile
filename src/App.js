@@ -21,6 +21,7 @@ function App() {
       const [userCarts, setUserCarts] = useState([])
 
 
+
   // ************ Menu Functions ************
     useEffect(()=>{
         fetch('http://127.0.0.1:3000/meals')
@@ -34,15 +35,13 @@ function App() {
         fetch('http://127.0.0.1:3000/users/1')
         .then(r => r.json())
         .then(handleUserFetch)
-      }, [])
+      }, [currentCart.orders])
 
       function handleUserFetch(user){
         setUserCarts(user.carts)
         setCartIndex(user.carts.length)
       }
-      // user => setCartIndex(user.carts.length))
     
-    console.log("in app",cartIndex)
     // ************Cart Functions ************
     useEffect(()=>{
       fetch(`http://127.0.0.1:3000/carts/${cartIndex}`)
@@ -61,6 +60,7 @@ function App() {
                 ...currentCart, 
                 orders: afterDelete
             }))
+
       }
 
       function sendNewOrderUp(newOrder){
@@ -149,6 +149,7 @@ function App() {
            </Route>
           <Route exact path="/cart/:id">
              <Cart
+             setCurrentCart={setCurrentCart}
              userCarts={userCarts}
              cartIndex={cartIndex}
              priceChange={priceChange} 
