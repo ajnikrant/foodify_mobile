@@ -17,6 +17,9 @@ function App() {
       const [homepageCategory, setHomepageCategory] = useState('all')
       const [search, setSearch] = useState("")
       const [allergenSearch, setAllergenSearch] = useState("")
+      const [cartIndex, setCartIndex] = useState(1)
+      const [userCarts, setUserCarts] = useState([])
+
 
   // ************ Menu Functions ************
     useEffect(()=>{
@@ -27,18 +30,25 @@ function App() {
 
 
   // ************ Fetching User ************
-    // useEffect(()=>{
-    //     fetch('http://127.0.0.1:3000/users/1')
-    //     .then(r => r.json())
-    //     .then(setMealsArray)
-    // }, [])
+    useEffect(()=>{
+        fetch('http://127.0.0.1:3000/users/1')
+        .then(r => r.json())
+        .then(handleUserFetch)
+      }, [])
+
+      function handleUserFetch(user){
+        setUserCarts(user.carts)
+        setCartIndex(user.carts.length)
+      }
+      // user => setCartIndex(user.carts.length))
     
+    console.log("in app",cartIndex)
     // ************Cart Functions ************
     useEffect(()=>{
-      fetch(`http://127.0.0.1:3000/carts/1`)
+      fetch(`http://127.0.0.1:3000/carts/${cartIndex}`)
       .then(r => r.json())
       .then(setCurrentCart)
-      }, [])
+      }, [cartIndex])
   
 
       function removeDeleted(orderId){
@@ -131,10 +141,16 @@ function App() {
               mealsArray={homepageFiltering()}/>
            </Route>
           <Route path="/meals/:id">
-             <MealShowPage setPriceChange={setPriceChange} priceChange={priceChange} sendNewOrderUp={sendNewOrderUp}/>
+             <MealShowPage 
+             cartIndex={cartIndex} 
+             setPriceChange={setPriceChange} 
+             priceChange={priceChange} 
+             sendNewOrderUp={sendNewOrderUp}/>
            </Route>
           <Route exact path="/cart/:id">
              <Cart
+             userCarts={userCarts}
+             cartIndex={cartIndex}
              priceChange={priceChange} 
              setPriceChange={setPriceChange} 
              currentCart={currentCart} 

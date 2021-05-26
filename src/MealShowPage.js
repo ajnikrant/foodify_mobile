@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 
-function MealShowPage({sendNewOrderUp, setPriceChange, priceChange}){
+function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
     // const {description, id, image, ingredients, name, price} = meal
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
@@ -20,15 +20,16 @@ function MealShowPage({sendNewOrderUp, setPriceChange, priceChange}){
         else {return mealQty}
     }
 
+    console.log("meal show page", cartIndex)
+
     function handleAddToCart(){
         const newOrder={
             meal_id: Number(mealDetail.id),
-            cart_id: Number(1), 
+            cart_id: Number(cartIndex), 
             mealqty: Number(mealQty),
             subtotal: Number(priceChange + (mealDetail.price * mealQty))
         }
 
-        console.log(newOrder)
         fetch("http://localhost:3000/orders", {
             method: "POST", 
             headers: {
@@ -43,7 +44,7 @@ function MealShowPage({sendNewOrderUp, setPriceChange, priceChange}){
         setPriceChange(priceChange + (mealDetail.price * mealQty))
 
 
-        history.push("/cart/:id")
+        history.push(`/cart/${cartIndex}`)
 
     }
 

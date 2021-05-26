@@ -3,17 +3,22 @@ import CartCheckout from './CartCheckout';
 import EmptyCartMesage from './EmptyCartMessage';
 import OrderCards from './OrderCards';
 import { useHistory } from 'react-router-dom'
+import PreviousPurchases from './PreviousPurchases';
 
 
-function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
+function Cart({userCarts, cartIndex, currentCart, removeDeleted, priceChange, setPriceChange}){
     const [checkedOut, setCheckedOut] = useState(true)
     const history = useHistory()
     
-    console.log("database subtotal",currentCart.subtotal)
-    console.log("checked out",currentCart.checkedout)
-
     const renderMeals= currentCart.orders.length > 0 ? currentCart.orders.map(order => ( <OrderCards key={order.id} priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Looks Like your Cart is Empty"
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
+
+    const renderPreviousPurchases = userCarts.filter(cart => cart.checkedout===true).map(cart => <PreviousPurchases key={cart.id} cart={cart}/>)
+
+    console.log("curent cart",currentCart.id)
+    console.log("user cart state",userCarts)
+    console.log("filter",renderPreviousPurchases)
+
 
      useEffect(()=>{
         setPriceChange(priceTimesQty)
@@ -26,7 +31,7 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
         
         let total= parseFloat(finalTotal)
 
-        fetch(`http://localhost:3000/carts/1`, {
+        fetch(`http://localhost:3000/carts/${cartIndex}`, {
             method: "PATCH", 
             headers: {
                 'Accept': 'application/json',
@@ -34,14 +39,23 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
             },
             body: JSON.stringify({checkedout: true, subtotal: total})
         })
+        
+            const newCart ={
+                user_id: 1,
+                checkedout: false, 
+                subtotal: 0
+            }
 
-        // currentCart.orders.map(order => {
-        //     fetch(`http://localhost:3000/orders/${order.id}`, {
-        //     method: 'DELETE'
-        // })
-        // setPriceChange(priceChange - (order.meal.price * order.mealqty))
-        // removeDeleted(order.id)
-        // })
+            fetch("http://localhost:3000/carts", {
+                method: "POST", 
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(newCart)
+            })
+            .then(r => r.json())
+            .then(console.log)
     }
 
     function handleClick(){
@@ -80,6 +94,9 @@ function Cart({currentCart, removeDeleted, priceChange, setPriceChange}){
                     </div>
                 </>
             : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
+            <div className="previousP container">
+            {renderPreviousPurchases}
+            </div>
         </div>
     )
 
