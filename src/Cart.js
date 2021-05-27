@@ -15,12 +15,12 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
 
     const renderPreviousPurchases = userCarts.filter(cart => cart.checkedout===true).map(cart => <PreviousPurchases key={cart.id} cart={cart}/>)
 
-     useEffect(()=>{
+    useEffect(()=>{
         setPriceChange(priceTimesQty)
     },[currentCart.orders])
 
     function handleCheckout(e, finalTotal){
-        // e.preventDefault()
+        e.preventDefault()
         setCheckedOut(false)
         
         let total= parseFloat(finalTotal)
@@ -31,7 +31,7 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
                 'Accept': 'application/json',
                 'Content-Type' : 'application/json'
             },
-            body: JSON.stringify({checkedout: true, subtotal: total})
+            body: JSON.stringify({checkedout: true, subtotal: total, datePurchased: new Date(Date.now())})
         })
 
             const newCart ={
@@ -55,8 +55,6 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
     function handleClick(){
         history.push("/meals")
     }
-
-    
 
     return(
         <div className="cartContainer">

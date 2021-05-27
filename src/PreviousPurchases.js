@@ -17,7 +17,8 @@ function PreviousPurchases({cart}){
 
     return (
         <div className="previous-purchase">
-           {`${cart.id})`} Date Purchased: {randomMonth}/{randomDay}/2020 
+           {`${cart.id})`} Date Purchased: {cart.datePurchased}
+           {/* {randomMonth}/{randomDay}/2020  */}
            <br></br>
            <br></br>
            Total: {`$${(subtotal).toFixed(2)}`}
