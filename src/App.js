@@ -5,8 +5,8 @@ import MealsContainer from './MealsContainer';
 import Navbar from './Navbar';
 import Cart from './Cart';
 import { Route, Switch, useHistory } from 'react-router-dom'
-import Search from './Search';
 import MealShowPage from './MealShowPage';
+import Banner from './Banner';
 
 
 
@@ -127,8 +127,8 @@ function App() {
   return (
     <div className="App">
     <div>
+        <Banner />
          <Navbar />
-         <Search />
          <Switch>
            <Route exact path="/">
              <Homepage setHomepageCategory={setHomepageCategory}/>
