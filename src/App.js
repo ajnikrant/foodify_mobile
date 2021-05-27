@@ -128,7 +128,7 @@ function App() {
     <div className="App">
     <div>
         <Banner />
-         <Navbar />
+         <Navbar currentCart={currentCart}/>
          <Switch>
            <Route exact path="/">
              <Homepage setHomepageCategory={setHomepageCategory}/>

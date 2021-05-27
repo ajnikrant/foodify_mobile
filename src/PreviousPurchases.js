@@ -5,27 +5,34 @@ function PreviousPurchases({cart}){
     const renderOrderDetails = orders.map(order => {
       return ( 
        <div className= "prevOrderCard" >
-            <p>{order.meal.name}</p>
-            <p>Quantity: {order.mealqty}</p>
-            <p>Price/ea: {order.meal.price}</p>
-            <img src={order.meal.image}/>
+               <div className=" col-sm-2">
+                <p>{order.meal.name}</p>
+               </div>
+                <p>Quantity: {order.mealqty}</p>
+                <p>Price/ea: {order.meal.price}</p>
+                <img src={order.meal.image}/>
         </div>
         )
         })
-    const randomMonth = (Math.floor(Math.random() * (12 - 1)) + 1)
-    const randomDay = (Math.floor(Math.random() * (25 - 1)) + 1)
+
 
     return (
         <div className="previous-purchase">
-           {`${cart.id})`} Date Purchased: {cart.datePurchased}
-           {/* {randomMonth}/{randomDay}/2020  */}
-           <br></br>
-           <br></br>
-           Total: {`$${(subtotal).toFixed(2)}`}
-           <br></br>
-           <br></br>
-          {renderOrderDetails}
-          <hr></hr>
+            <div className="container">
+            <div className="row">
+            <div className=" col-sm-2">
+                {`${cart.id})`} Date Purchased: {cart.datePurchased}
+                <br></br>
+                <br></br>
+                 Total: {`$${(subtotal).toFixed(2)}`}
+            </div>
+
+            <div className=" col-sm-10">
+                {renderOrderDetails}
+            </div>
+            <hr></hr>
+            </div>
+          </div>
         </div>
     )
 }

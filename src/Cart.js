@@ -58,39 +58,41 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
 
     return(
         <div className="cartContainer">
-            <h2>Here's What You've Ordered:</h2>
-       
-        {checkedOut?  
-                <>
-                <div className="cart">
-                    {renderMeals}
-                </div>
-                <br></br>
-                <div className="price-section">
-                Subtotal: {`$${priceChange}.00`}
-                </div>
-                <br></br>
-                <button onClick={handleClick} className="btn btn-primary">Go to Menu</button>
-                <br></br>
-                <br></br>
-                <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Checkout</button>
-
-                    <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                        <div className="offcanvas-header">
-                            <h5 id="offcanvasRightLabel">Complete Checkout</h5>
-                            <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div className="offcanvas-body">
-                            <CartCheckout handleCheckout={handleCheckout} priceChange={priceChange}/>
-                        </div>
+            <div className="container">
+                <h2>Here's What You've Ordered:</h2>
+        
+            {checkedOut?  
+                    <>
+                    <div className="cart">
+                        {renderMeals}
                     </div>
-                </>
-            : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
-            <div className="previousP container">
-                <br></br>
-                <h5>Previous Purchases</h5>
-                <br></br>
-                {renderPreviousPurchases}
+                    <br></br>
+                    <div className="price-section">
+                    Subtotal: {`$${priceChange}.00`}
+                    </div>
+                    <br></br>
+                    <button onClick={handleClick} className="btn btn-primary">Go to Menu</button>
+                    <br></br>
+                    <br></br>
+                    <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Checkout</button>
+
+                        <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                            <div className="offcanvas-header">
+                                <h5 id="offcanvasRightLabel">Complete Checkout</h5>
+                                <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div className="offcanvas-body">
+                                <CartCheckout handleCheckout={handleCheckout} priceChange={priceChange}/>
+                            </div>
+                        </div>
+                    </>
+                : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
+                <div className="container">
+                    <br></br>
+                    <h5>Previous Purchases</h5>
+                    <br></br>
+                    {renderPreviousPurchases}
+                </div>
             </div>
         </div>
     )
