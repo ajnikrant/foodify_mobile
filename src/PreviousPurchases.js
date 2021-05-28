@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 function PreviousPurchases({cart}){
     const {subtotal, orders} =cart
+
     const renderOrderDetails = orders.map(order => {
       return ( 
        <div className= "prevOrderCard" >
@@ -17,18 +18,25 @@ function PreviousPurchases({cart}){
 
 
     return (
+        
         <div className="previous-purchase">
             <div className="container">
             <div className="row">
             <div className=" col-sm-2">
-                {`${cart.id})`} Date Purchased: {cart.datePurchased}
+                {`${cart.id})`} Completed On: 
                 <br></br>
                 <br></br>
-                 Total: {`$${(subtotal).toFixed(2)}`}
+                {cart.datePurchased}
+                <br></br>
+                <br></br>
+                 {/* Total: {`$${(subtotal).toFixed(2)}`} */}
             </div>
 
-            <div className=" col-sm-10">
+            <div className=" col-sm-8">
                 {renderOrderDetails}
+            </div>
+            <div className=" col-sm-2">
+                Total: {`$${(subtotal).toFixed(2)}`}
             </div>
             <hr></hr>
             </div>

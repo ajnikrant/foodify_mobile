@@ -46,6 +46,7 @@ code {
 .filter {
   padding-top: 80px;
   border-style: solid;
+  background-color: rgba(107, 203, 166, 0.358);
 }
 
 .mealCardContainer{
@@ -57,6 +58,11 @@ code {
 .menuCardImage {
   height: 200px;
   width: 200px;
+}
+
+/* ******** About Page ********* */
+.founderimg {
+  height: 250px;
 }
 
 /* ******** Cart Page ********* */

@@ -7,6 +7,8 @@ import Cart from './Cart';
 import { Route, Switch, useHistory } from 'react-router-dom'
 import MealShowPage from './MealShowPage';
 import Banner from './Banner';
+import PrevPurchContainer from './PrevPurchContainer';
+import About from './About';
 
 
 
@@ -156,6 +158,12 @@ function App() {
              setPriceChange={setPriceChange} 
              currentCart={currentCart} 
              removeDeleted={removeDeleted}/>
+           </Route>
+          <Route exact path="/carts/completed">
+             <PrevPurchContainer userCarts={userCarts}/>
+           </Route>
+          <Route exact path="/about">
+             <About />
            </Route>
        </Switch>
     </div>

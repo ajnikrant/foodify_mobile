@@ -13,7 +13,7 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
     const renderMeals= currentCart.orders.length > 0 ? currentCart.orders.map(order => ( <OrderCards key={order.id} priceChange={priceChange} setPriceChange={setPriceChange} removeDeleted={removeDeleted} order={order}/>)) : "Looks Like your Cart is Empty"
     let priceTimesQty = currentCart.orders ? currentCart.orders.map(order => order.meal.price * order.mealqty).reduce(function(a, b){return a + b;}, 0) : 0
 
-    const renderPreviousPurchases = userCarts.filter(cart => cart.checkedout===true).map(cart => <PreviousPurchases key={cart.id} cart={cart}/>)
+    // const renderPreviousPurchases = userCarts.filter(cart => cart.checkedout===true).map(cart => <PreviousPurchases key={cart.id} cart={cart}/>)
 
     useEffect(()=>{
         setPriceChange(priceTimesQty)
@@ -87,12 +87,12 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
                         </div>
                     </>
                 : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
-                <div className="container">
+                {/* <div className="container">
                     <br></br>
                     <h5>Previous Purchases</h5>
                     <br></br>
                     {renderPreviousPurchases}
-                </div>
+                </div> */}
             </div>
         </div>
     )
