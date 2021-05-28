@@ -10,7 +10,6 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
     const [mealQty, setMealQty] = useState(1)
     const history = useHistory()
 
-
     function handleAddQty(){
         setMealQty(mealQty + 1)
     }
@@ -47,15 +46,29 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
     }
 
     return (
-        <div>
-            <h4>{mealDetail.name}</h4>
-            <img src = {mealDetail.image} alt={mealDetail.description} />
-            <p>{mealDetail.description}</p>
-            <p>Ingredients: {mealDetail.ingredients}</p>
-            <p>${mealDetail.price}</p>
-            <button onClick={handleSubtractQty}>-</button>
-            <input type="text" value={mealQty}/>            
-            <button onClick={handleAddQty}>+</button>
+        <div className="container">
+            <div className="row">
+                <h2>{mealDetail.name}</h2>
+                <img src = {mealDetail.image} alt={mealDetail.description} />
+                <p>{mealDetail.description}</p>
+                <p>${mealDetail.price}</p>
+            </div>
+            <div className="row">
+                <div className="col-sm-6">
+                        <h5>Ingredients: </h5>
+                    <p>{mealDetail.ingredients}</p>
+                </div>
+                <div className="col-sm-6">
+                    <h5>Nutrition Info: </h5>
+                        <p>Calories: {mealDetail.calories}</p>
+                        <p>Carbs: {mealDetail.carbs}g</p>
+                        <p>Protein: {mealDetail.protein}g</p>
+                        <p>Fat: {mealDetail.fat}g</p>
+                </div>
+            </div>
+                <button onClick={handleSubtractQty}>-</button>
+                <input type="text" value={mealQty}/>            
+                <button onClick={handleAddQty}>+</button>
             <br></br>
             <button onClick={handleAddToCart}>Add to Cart</button>
         </div>

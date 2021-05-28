@@ -36,7 +36,7 @@ function Filter({setHomepageCategory, search, setSearch, allergenSearch, setAlle
                 type="text"
                 id="search"
                 value={search}
-                placeholder="Type a name to search..."
+                placeholder="Search ingredients..."
                 onChange={(e) => setSearch(e.target.value)}
             />
                         <br></br>
@@ -47,7 +47,7 @@ function Filter({setHomepageCategory, search, setSearch, allergenSearch, setAlle
                 type="text"
                 id="search"
                 value={allergenSearch}
-                placeholder="Type a name to search..."
+                placeholder="Search ingredients..."
                 onChange={(e) => setAllergenSearch(e.target.value)}
             />
             {/* <div className="new-plant-form">

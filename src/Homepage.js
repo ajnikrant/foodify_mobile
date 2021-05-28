@@ -32,7 +32,19 @@ function Homepage({setHomepageCategory}){
             <iframe src="https://www.youtube.com/embed/exXdcVE0nQA?rel=0&amp;autoplay=1&mute=1&loop=1" width="950" height="515" frameborder="0" allowfullscreen></iframe>
             <br></br>
             <br></br>
-            <div className="container">
+            <div className="home container">
+                    <br></br>
+                    <br></br>
+                    <h3>Looking for fresh and tasty meals? </h3>
+                    <br></br>
+                    <br></br>
+                    <h4>Foodify offers affordable and healthy hand-made meals for all! </h4>
+                    <br></br>
+                    <br></br>
+                    <h4>Take a look at our menu options below!</h4>
+                    <br></br>
+                    <br></br>
+
                 <div className="homepage-image-container">
                         <div className="homepage-category" >
                             <img onClick={handleHomePageClick} src="https://eatmightymeals.com/wp-content/uploads/2021/04/steak_rancheros.png" alt="lowcarb" />
@@ -50,11 +62,12 @@ function Homepage({setHomepageCategory}){
                             <img onClick={handleHomePageClick} src="https://eatmightymeals.com/wp-content/uploads/2020/09/web__0001_Tofu-Poke-Bowl.png" alt="lowcal"/>
                             <h4>Meals under 500 calories</h4>
                         </div>
-                    {/* </div> */}
+                    <br></br>
+                    <br></br>
+                </div>
                     <br></br>
                     <br></br>
                         <button type="button" className="btn btn-primary btn-lg" onClick={handleClick}> See Full Menu </button>
-                </div>
             </div>
         </div>
     )

@@ -41,15 +41,15 @@ function MealCard({meal, allergenSearch}){
     }
 
     return(
-        <div className={cardColor? "card text-white bg-danger mb-3" : "card text-dark bg-light mb-3"} style={{ width: '18rem' }} 
+        <div className={cardColor? "mealcard card text-white bg-danger mb-3" : "mealcard card text-dark bg-light mb-3"} style={{ width: '18rem' }} 
         onMouseLeave={handleHoverLeave} 
         onMouseEnter={handleHoverEnter} 
         onClick={handleCardClick}
         >
             <h4>{name}</h4>
             {/* <img src = {image} alt={description} /> */}
-            <p>{showDescription ? description : <img className="menuCardImage" src = {image} alt={description} />}</p>
-            <p>${price}</p>
+            <p>{showDescription ? description : <img className="menuCardImage" src = {image} alt={description}/>}</p>
+            <p className="price">${price}</p>
             
 
         </div>
