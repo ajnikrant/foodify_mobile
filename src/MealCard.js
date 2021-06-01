@@ -48,7 +48,14 @@ function MealCard({meal, allergenSearch}){
         >
             <h4>{name}</h4>
             {/* <img src = {image} alt={description} /> */}
-            <p>{showDescription ? description : <img className="menuCardImage" src = {image} alt={description}/>}</p>
+            <p>{showDescription ? 
+                <div className="mouseOverDesc">
+                    <p>{description}</p>
+                    <img className="mouseOverDescImage" src = {image} alt={description}/>
+                </div> 
+                : 
+                <img className="menuCardImage" src = {image} alt={description}/>}
+            </p>
             <p className="price">${price}</p>
             
 
