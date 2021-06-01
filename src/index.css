@@ -156,6 +156,8 @@ code {
   height: 450px;
   border-style: solid;
   background-color: rgba(107, 203, 166, 0.358);
+  position: sticky;
+  top: 30px;
 }
 
 .filterDiv label{
