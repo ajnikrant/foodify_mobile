@@ -159,3 +159,8 @@ font-size: larger;
 .prevpurch {
   padding-top: 50px;
 }
+
+.about img{
+  height: 300px;
+  width: 400px;
+}
