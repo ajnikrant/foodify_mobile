@@ -47,11 +47,10 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
 
     return (
         <div className="showpage container">
-            <div className="row">
+            <div className="description row">
                 <h2>{mealDetail.name}</h2>
                 <br></br>
                 <img src = {mealDetail.image} alt={mealDetail.description} />
-                <br></br>
                 <div className="descriptionPrice">
                     <p>{mealDetail.description}</p>
                     <br></br>

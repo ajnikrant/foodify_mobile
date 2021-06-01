@@ -7,7 +7,7 @@ function MealsContainer({mealsArray, setHomepageCategory, search, setSearch, all
     const renderMeals = mealsArray.map((meal) => <MealCard allergenSearch={allergenSearch} key={meal.id} meal={meal} />)
 
     return(
-       <div className="container">
+       <div className="mealsContainer container">
         <div className="row ">
            <div className="filter col-sm-3">
             <Filter 
