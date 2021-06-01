@@ -46,14 +46,19 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
     }
 
     return (
-        <div className="container">
+        <div className="showpage container">
             <div className="row">
                 <h2>{mealDetail.name}</h2>
+                <br></br>
                 <img src = {mealDetail.image} alt={mealDetail.description} />
-                <p>{mealDetail.description}</p>
-                <p>${mealDetail.price}</p>
+                <br></br>
+                <div className="descriptionPrice">
+                    <p>{mealDetail.description}</p>
+                    <br></br>
+                    <p>Price: ${mealDetail.price}</p>
+                </div>
             </div>
-            <div className="row">
+            <div className="splitInfo row">
                 <div className="col-sm-6">
                         <h5>Ingredients: </h5>
                     <p>{mealDetail.ingredients}</p>
@@ -69,6 +74,7 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
                 <button onClick={handleSubtractQty}>-</button>
                 <input type="text" value={mealQty}/>            
                 <button onClick={handleAddQty}>+</button>
+            <br></br>
             <br></br>
             <button onClick={handleAddToCart}>Add to Cart</button>
         </div>

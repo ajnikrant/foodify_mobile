@@ -19,6 +19,7 @@ function Homepage({setHomepageCategory}){
         history.push("/meals")
     }
 
+
     return (
         <div className="homepage">
             <img className='homepageIcon' src={justLogoIcon}/>

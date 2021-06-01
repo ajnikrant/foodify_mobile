@@ -42,9 +42,38 @@ code {
   width: 300px;
 }
 
+.homepage-category:hover{
+  opacity: 50%;
+}
+
 .home.container{
   padding-bottom: 100px;
 }
+/* ******** Meal show Page ********* */
+.showpage img {
+  height: 750px;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showpage {
+  padding-top: 75px;
+  padding-bottom: 75px;
+font-size: larger;
+}
+
+.descriptionPrice {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: rgba(107, 203, 166, 0.226);
+}
+
+.splitInfo{
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
 /* ******** Menu Page ********* */
 
 .filter {
@@ -82,14 +111,24 @@ code {
 /* ******** Cart Page ********* */
 
 .cartContainer h2{
+  padding-top: 50px;
   text-align: center;
+}
+
+.cartContainer{
+  padding-bottom: 50px;
 }
 
 .orderCards img{
   height: 300px;
   width: 300px;
-
 }
+
+/* .orderCards {
+  font-size: larger;
+} */
+
+/* ******** previous purchases Page ********* */
 
 .prevOrderCard img{
   height: 100xpx;
@@ -101,4 +140,13 @@ code {
   flex-flow: row wrap;
   justify-content: space-evenly;
 
+}
+
+.previous-purchase{
+  font-size: larger;
+  padding-top: 50px;
+}
+
+.prevpurch {
+  padding-top: 50px;
 }
