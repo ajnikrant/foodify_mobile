@@ -15,7 +15,10 @@ function Navbar({currentCart}){
     return(
         <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <div className="container-fluid">
-          <div className="collapse navbar-collapse justify-content-start mb-0 h3" id="navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div className="collapse navbar-collapse justify-content-between mb-0 h3" id="navbarTogglerDemo02">
             <ul className="navbar-nav flex-nowrap">
               <li className="nav-item">
                   <NavLink className="navbar-brand" to="/" exact >

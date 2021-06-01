@@ -15,7 +15,7 @@ function About(){
                     <br></br>
                     <p>Foodify is where hand-prepared healthy meals are delivered fresh to you! In a world where time is short and healthy meal options can be difficult to find, 
                     Foodfy strives to provide healthy options with the convenience of delivery. As food sensitivities and allergies skyrocket across the United States, 
-                    Foodify provides filtering options to help highlight meals containing ingredients that should be avoided. 
+                    Foodify provides filtering options to help highlight meals containing ingredients that you want to avoid, so you feel confident about what you eat. 
                      </p>
                 </div>
             </div>
@@ -26,7 +26,7 @@ function About(){
                     <p>
                         Amanda Nikrant was first introduced to allergen-aware cooking in 2011 when she was first diagnosed with an unusual food allergy. 
                         From that time on, her love of cooking coupled with her knowlege of nutrition sparked a passion
-                        for helping others with food sensitivities or allergies to order delicious food safely. 
+                        for helping others with food sensitivities or allergies order safe meals that are absolutely delicious. 
                     </p>
                 </div>
                 <div className="amandaPic col-sm-6">
