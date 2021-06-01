@@ -51,7 +51,7 @@ function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
 return(
     <div className="orderCards">
         <br></br>
-        <h5>{meal.name}</h5>
+        <h4>{meal.name}</h4>
         <img src={meal.image} />
         <li>Price/ea:{`$${meal.price}.00`}</li> 
         <button onClick={handleQtyChange} name="subtract">-</button>

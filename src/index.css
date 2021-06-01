@@ -12,13 +12,42 @@ code {
     monospace;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
 /* ******** navbar ********* */
 .navbar{
   box-shadow: 5px 5px 10px 2px rgba(161, 158, 158, 0.301);
 }
 
+#text{
+  font-family: 'Lora', serif;
+}
+
 .nav-item:hover{
-  opacity: 50%;
+  /* opacity: 50%; */
+  border-radius: 5px;
+  background-color: rgba(107, 203, 166, 0.4);
+}
+
+.nav-link.active {
+  border-radius: 5px;
+  background-color: rgba(107, 203, 166, 0.226);
+}
+
+
+.navbar-brand, .navbar-nav, .navbar-nav>li {
+  float:none !important;
+}
+
+.navbar-nav {
+  display:flex;
+}
+
+.navbar-nav>li {
+  flex: 1;
 }
 
 
@@ -30,6 +59,8 @@ code {
 
 .bannerLogo {
   background-color: rgba(233, 225, 195, 0.4);
+  padding-top: 17px;
+  padding-bottom: 17px;
 }
 
 /* ******** HomePage ********* */
@@ -42,14 +73,30 @@ code {
   padding-top: 20px;
 }
 
+.homepage h1 {
+  font-family: 'Abril Fatface', cursive;
+  margin-top: 20px;
+}
+
+.homepage h3 {
+  font-family: 'Satisfy', cursive;
+}
+
+.homepage h4 {
+  font-family: 'Signika', sans-serif;
+}
+
 .homepage-image-container{
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .homepage-category {
-  width: 25%;
+  /* width: 25%; */
   max-width: 350px;
+  min-width: 350px;
+  margin: 10px;
+  padding-top: 10px;
 }
 .homepage-category img{
   height: 300px;
@@ -82,6 +129,10 @@ code {
   margin-bottom: 40px;
 }
 
+.description h2{
+  font-family: 'Lora', serif;
+}
+
 .descriptionPrice {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -108,6 +159,7 @@ code {
 
 .filterDiv label{
   font-size: 20px;
+  font-family: 'Signika', sans-serif;
 }
 
 .mealCardContainer{
@@ -121,6 +173,10 @@ code {
   padding-top: 25px;
 }
 
+.mealcard h4{
+  font-family: 'Lora', serif;
+}
+
 .menuCardImage {
   height: 200px;
   width: 200px;
@@ -130,6 +186,14 @@ code {
 #founderimg {
   height: 220px;
   width: 280px;
+}
+
+.about.container h3{
+  font-family: 'Satisfy', cursive;
+}
+
+.about.container p{
+  font-family: 'Signika', sans-serif;
 }
 
 .firstAboutRow{
@@ -168,10 +232,14 @@ code {
 .cartContainer h2{
   padding-top: 50px;
   text-align: center;
+  font-family: 'Lora', serif;
 }
 
 .cartContainer{
   padding-bottom: 50px;
+}
+.orderCards h4{
+  font-family: 'Signika', sans-serif;
 }
 
 .orderCards img{
@@ -200,10 +268,13 @@ code {
 .previous-purchase{
   font-size: larger;
   padding-top: 50px;
+  font-family: 'Signika', sans-serif;
 }
 
 .prevpurch {
   padding-top: 50px;
+  font-family: 'Lora', serif;
+
 }
 
 .about img{

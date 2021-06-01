@@ -36,7 +36,7 @@ function Homepage({setHomepageCategory}){
             <div className="home container">
                     <br></br>
                     <br></br>
-                    <h3>Looking for fresh and tasty meals? </h3>
+                    <h4>Looking for fresh and tasty meals? </h4>
                     <br></br>
                     <br></br>
                     <h4>Foodify offers affordable and healthy hand-made meals for all! </h4>
