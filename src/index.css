@@ -12,6 +12,15 @@ code {
     monospace;
 }
 
+/* ******** navbar ********* */
+.navbar{
+  box-shadow: 5px 5px 10px 2px rgba(161, 158, 158, 0.301);
+}
+
+.nav-item:hover{
+  opacity: 50%;
+}
+
 /* ******** Banner ********* */
 .bannerLogo img{
   height: 150px;
