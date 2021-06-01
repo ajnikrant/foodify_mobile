@@ -133,9 +133,9 @@ font-size: larger;
   width: 300px;
 }
 
-/* .orderCards {
-  font-size: larger;
-} */
+.orderCards li {
+  list-style-type: none;
+}
 
 /* ******** previous purchases Page ********* */
 
