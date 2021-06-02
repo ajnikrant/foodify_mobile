@@ -90,6 +90,7 @@ code {
   flex-flow: row wrap;
   justify-content: center;
 }
+
 .homepage-category {
   max-width: 350px;
   min-width: 350px;
@@ -370,5 +371,9 @@ bottom: 0;
     position: sticky;
     top: 0px;
     z-index: 100;
+  }
+  .description img {
+    width: 300px;
+    height: 300px;
   }
 }
