@@ -11,7 +11,6 @@ function Navbar({currentCart}){
       }
       else {return (currentCart.orders.length)}
   }
-  console.log(currentCart.orders.length)
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">

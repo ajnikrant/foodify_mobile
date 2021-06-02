@@ -285,8 +285,18 @@ bottom: 0;
   width: 300px;
 }
 
+.orderCards {
+  position: relative;
+} 
+
 .orderCards li {
   list-style-type: none;
+}
+
+#trashcanBtn{
+  position: absolute;
+  top: 80px;
+  right: 425px;
 }
 
 /* ******** previous purchases Page ********* */
@@ -343,6 +353,12 @@ bottom: 0;
   .homepageIcon{
     height: 100px;
   }
+
+  #trashcanBtn{
+    position: absolute;
+    top: 80px;
+    right: 217px;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -375,5 +391,11 @@ bottom: 0;
   .description img {
     width: 300px;
     height: 300px;
+  }
+
+  #trashcanBtn{
+    position: absolute;
+    top: 80px;
+    right: 45px;
   }
 }

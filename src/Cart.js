@@ -59,7 +59,7 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
     return(
         <div className="cartContainer">
             <div className="container">
-                <h2>Here's What You've Ordered:</h2>
+            {checkedOut && <h2>Here's What You've Ordered:</h2>}
         
             {checkedOut?  
                     <>
@@ -74,7 +74,7 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
                     <button onClick={handleClick} className="btn btn-primary">Go to Menu</button>
                     <br></br>
                     <br></br>
-                    <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Checkout</button>
+                    <button className="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Checkout</button>
 
                         <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                             <div className="offcanvas-header">
@@ -87,12 +87,6 @@ function Cart({setCurrentCart, userCarts, cartIndex, currentCart, removeDeleted,
                         </div>
                     </>
                 : <EmptyCartMesage setCheckedOut={setCheckedOut}/>}
-                {/* <div className="container">
-                    <br></br>
-                    <h5>Previous Purchases</h5>
-                    <br></br>
-                    {renderPreviousPurchases}
-                </div> */}
             </div>
         </div>
     )

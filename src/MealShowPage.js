@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import { useLocation } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
-
 function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
-    // const {description, id, image, ingredients, name, price} = meal
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
     const [mealQty, setMealQty] = useState(1)
@@ -40,8 +38,11 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
 
         setPriceChange(priceChange + (mealDetail.price * mealQty))
 
-
         history.push(`/cart/${cartIndex}`)
+    }
+
+    function handleMenuClick(){
+        history.push(`/meals`)
 
     }
 
@@ -75,7 +76,10 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
                 <button onClick={handleAddQty}>+</button>
             <br></br>
             <br></br>
-            <button onClick={handleAddToCart}>Add to Cart</button>
+            <button className="btn btn-warning" onClick={handleAddToCart}>Add to Cart</button>
+            <br></br>
+            <br></br>
+            <button className="btn btn-info" onClick={handleMenuClick}>Back to Menu</button>
         </div>
     )
 }
