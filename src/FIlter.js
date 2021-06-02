@@ -42,6 +42,9 @@ function Filter({setHomepageCategory, search, setSearch, allergenSearch, setAlle
                         <br></br>
                         <br></br>
             <label htmlFor="search">Filter Out Ingredients:</label>
+            <div className="filterKey">
+                <p id="redWord">*Red highlighted </p><p>cards contain Ingredient</p>
+            </div>
             <br></br>
             <input
                 type="text"

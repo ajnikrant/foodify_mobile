@@ -9,7 +9,7 @@ function MealsContainer({mealsArray, setHomepageCategory, search, setSearch, all
     return(
        <div className="mealsContainer container">
         <div className="row ">
-           <div className="filter col-sm-3">
+           <div className="filter col-md-3" >
             <Filter 
             allergenSearch={allergenSearch} 
             setAllergenSearch={setAllergenSearch} 
@@ -18,7 +18,7 @@ function MealsContainer({mealsArray, setHomepageCategory, search, setSearch, all
             setSearch={setSearch}
             />
            </div>
-           <div className="mealCardContainer col-sm-9">
+           <div className="mealCardContainer col-md-9">
             {renderMeals}
            </div>
         </div>

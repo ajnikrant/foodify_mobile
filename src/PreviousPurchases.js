@@ -38,6 +38,7 @@ function PreviousPurchases({cart}){
             <div className=" col-sm-2">
                 Total: {`$${(subtotal).toFixed(2)}`}
             </div>
+            <br></br>
             <hr></hr>
             </div>
           </div>
