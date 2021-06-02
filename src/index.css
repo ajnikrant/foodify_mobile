@@ -182,6 +182,12 @@ code {
 .mealcard {
   height: 350px;
   padding-top: 25px;
+  transition: all .2s ease-in-out;
+}
+
+.mealcard:hover{
+  box-shadow: 5px 5px 10px 2px rgba(19, 178, 199, 0.486);
+  transform: scale(1.05); 
 }
 
 .mealcard h4{
@@ -205,6 +211,12 @@ code {
 .menuCardImage {
   height: 200px;
   width: 200px;
+}
+
+#price{
+padding-left: 130px; 
+position: absolute;
+bottom: 0;
 }
 
 /* ******** About Page ********* */

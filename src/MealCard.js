@@ -56,7 +56,7 @@ function MealCard({meal, allergenSearch}){
                 : 
                 <img className="menuCardImage" src = {image} alt={description}/>}
             </p>
-            <p className="price">${price}</p>
+            <p id="price"> ${price}</p>
             
 
         </div>
