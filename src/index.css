@@ -118,6 +118,7 @@ code {
 }
 
 .showpage {
+  position: relative;
   margin-top: 20px;
   padding-top: 75px;
   padding-bottom: 75px;
@@ -136,13 +137,37 @@ code {
 .descriptionPrice {
   padding-top: 25px;
   padding-bottom: 25px;
-  background-color: rgba(107, 203, 166, 0.226);
+  background-color: rgba(55, 172, 218, 0.226);
 }
 
 .splitInfo{
   padding-top: 40px;
   padding-bottom: 20px;
 }
+
+.alert.alert-success.show{
+  opacity: 80%;
+  position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: show_slide 0.5s ease backwards;
+  }
+  @keyframes show_slide {
+    0%{
+      transform: translateY(100%);
+    }
+    40%{
+      transform: translateY(-10%);
+    }
+    80%{
+      transform: translateY(0%);
+    }
+    100%{
+      transform: translateY(-10px);
+    }
+  }
 
 /* ******** Filter Page ********* */
 

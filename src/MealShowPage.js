@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
     const location = useLocation()
     const [mealDetail, setMealDetail] = useState(location.state.params)
+    const [showAlert, setShowAlert] = useState(false)
     const [mealQty, setMealQty] = useState(1)
     const history = useHistory()
 
@@ -38,7 +39,23 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
 
         setPriceChange(priceChange + (mealDetail.price * mealQty))
 
-        history.push(`/cart/${cartIndex}`)
+        window.scrollTo({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                setShowAlert(true)
+            }, 500);
+
+            setTimeout(() => {
+                setShowAlert(false)
+            }, 4000);
+    }
+
+    function handleAlertClick(){
+        setShowAlert(false)
     }
 
     function handleMenuClick(){
@@ -48,6 +65,13 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
 
     return (
         <div className="showpage container">
+          { showAlert && <div className="alert alert-success show" role="alert" onClick={handleAlertClick}>
+                This item was successfully added to your cart  
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
+                </svg> 
+            </div> 
+        }
             <div className="description row">
                 <h2>{mealDetail.name}</h2>
                 <br></br>
