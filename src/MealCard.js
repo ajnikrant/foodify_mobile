@@ -47,7 +47,6 @@ function MealCard({meal, allergenSearch}){
         onClick={handleCardClick}
         >
             <h4>{name}</h4>
-            {/* <img src = {image} alt={description} /> */}
             <p>{showDescription ? 
                 <div className="mouseOverDesc">
                     <p>{description}</p>

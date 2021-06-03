@@ -30,7 +30,7 @@ function Homepage({setHomepageCategory}){
             <br></br>
             <br></br>
 
-            <iframe src="https://www.youtube.com/embed/exXdcVE0nQA?rel=0&amp;autoplay=1&mute=1&loop=1" width="950" height="515" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/exXdcVE0nQA?rel=0&amp;autoplay=1&mute=1&loop=1" width="950" height="515" frameBorder="0" allowfullscreen></iframe>
             <br></br>
             <br></br>
             <div className="home container">

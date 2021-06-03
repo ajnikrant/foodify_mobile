@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 function OrderCards({order, removeDeleted, setPriceChange, priceChange}){
-    const {id, meal_id, meal, mealqty, image} = order
+    const {id, meal, mealqty} = order
     const [orderQty, setOrderQty] = useState(mealqty)
 
     function handleQtyChange(e){

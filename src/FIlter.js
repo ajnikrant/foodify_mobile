@@ -6,11 +6,6 @@ function Filter({setHomepageCategory, search, setSearch, allergenSearch, setAlle
         setHomepageCategory(e.target.value)
     }
 
-    // function handleAllergenSubmit(e){
-    //     e.preventDefault()
-    //     highlightAllergens()
-    // }
-
     return(
         <div className="filterDiv">
             <label>Narrow Your Selection: </label>
@@ -53,14 +48,6 @@ function Filter({setHomepageCategory, search, setSearch, allergenSearch, setAlle
                 placeholder="Search ingredients..."
                 onChange={(e) => setAllergenSearch(e.target.value)}
             />
-            {/* <div className="new-plant-form">
-                <h6>Filter Out Ingredients:</h6>
-                <form onSubmit={handleAllergenSubmit}>
-                    <input onChange={(e) => setAllergenSearch(e.target.value)} value={allergenSearch} type="text" name="name" placeholder="Plant name" />
-                    <button type="submit">Search</button>
-                </form>
-            </div> */}
-
         </div>
 
     )

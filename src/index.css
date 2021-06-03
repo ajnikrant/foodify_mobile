@@ -423,4 +423,9 @@ bottom: 0;
     top: 80px;
     right: 45px;
   }
+
+  .homepage-category img{
+    height: 100px;
+    width: 100px;
+  }
 }

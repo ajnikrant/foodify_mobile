@@ -51,7 +51,7 @@ function MealShowPage({cartIndex, sendNewOrderUp, setPriceChange, priceChange}){
 
             setTimeout(() => {
                 setShowAlert(false)
-            }, 4000);
+            }, 3000);
     }
 
     function handleAlertClick(){
