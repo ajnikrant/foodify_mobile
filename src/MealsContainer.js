@@ -1,25 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Filter from './FIlter';
 import MealCard from './MealCard';
 
-function MealsContainer(){
+function MealsContainer({mealsArray, setHomepageCategory, search, setSearch, allergenSearch, setAllergenSearch}){
 
-    useEffect(()=>{
-        fetch('http://127.0.0.1:3000/meals')
-        .then(r => r.json())
-        .then(setMealsArray)
-    }, [])
-
-    const [mealsArray, setMealsArray] = useState([])
-
-
-    const renderMeals = mealsArray.map((meal) => <MealCard key={meal.id} meal={meal} />)
+    const renderMeals = mealsArray.map((meal) => <MealCard allergenSearch={allergenSearch} key={meal.id} meal={meal} />)
 
     return(
-       <div className="mealcontainer">
-            Hey, this is the meals container
-            <Filter />
+       <div className="mealsContainer container">
+        <div className="row ">
+           <div className="filter col-md-3" >
+            <Filter 
+            allergenSearch={allergenSearch} 
+            setAllergenSearch={setAllergenSearch} 
+            setHomepageCategory={setHomepageCategory} 
+            search={search} 
+            setSearch={setSearch}
+            />
+           </div>
+           <div className="mealCardContainer col-md-9">
             {renderMeals}
+           </div>
+        </div>
         </div>
     )
 

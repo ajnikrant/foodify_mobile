@@ -12,13 +12,420 @@ code {
     monospace;
 }
 
-.card {
-  width: 25%;
-  max-width: 350px;
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+/* ******** navbar ********* */
+.navbar{
+  box-shadow: 5px 5px 10px 2px rgba(161, 158, 158, 0.301);
 }
 
-.mealcontainer{
+#text{
+  font-family: 'Lora', serif;
+}
+
+.nav-item:hover{
+  border-radius: 5px;
+  background-color: rgba(107, 203, 166, 0.4);
+}
+
+.nav-link.active {
+  border-radius: 5px;
+  background-color: rgba(107, 203, 166, 0.226);
+}
+
+
+.navbar-brand, .navbar-nav, .navbar-nav>li {
+  float:none !important;
+}
+
+.navbar-nav {
+  display:flex;
+}
+
+.navbar-nav>li {
+  flex: 1;
+}
+
+
+/* ******** Banner ********* */
+.bannerLogo img{
+  height: 150px;
+  justify-content: center;
+}
+
+.bannerLogo {
+  background-color: rgba(233, 225, 195, 0.4);
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+/* ******** HomePage ********* */
+
+.homepageIcon{
+  height:200px;
+}
+
+.homepage{
+  padding-top: 20px;
+}
+
+.homepage h1 {
+  font-family: 'Abril Fatface', cursive;
+  margin-top: 20px;
+}
+
+.homepage h3 {
+  font-family: 'Satisfy', cursive;
+}
+
+.homepage h4 {
+  font-family: 'Signika', sans-serif;
+}
+
+.homepage-image-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.homepage-category {
+  max-width: 350px;
+  min-width: 350px;
+  margin: 10px;
+  padding-top: 10px;
+}
+.homepage-category img{
+  height: 300px;
+  width: 300px;
+}
+
+.homepage-category:hover{
+  opacity: 50%;
+}
+
+.home.container{
+  padding-bottom: 100px;
+}
+/* ******** Meal show Page ********* */
+.showpage img {
+  height: 750px;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showpage {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  font-size: larger;
+  font-family: 'Lora', serif;
+}
+.description img{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.description h2{
+  font-family: 'Lora', serif;
+}
+
+.descriptionPrice {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: rgba(55, 172, 218, 0.226);
+}
+
+.splitInfo{
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.alert.alert-success.show{
+  opacity: 80%;
+  position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: show_slide 0.5s ease backwards;
+  }
+  @keyframes show_slide {
+    0%{
+      transform: translateY(100%);
+    }
+    40%{
+      transform: translateY(-10%);
+    }
+    80%{
+      transform: translateY(0%);
+    }
+    100%{
+      transform: translateY(-10px);
+    }
+  }
+
+/* ******** Filter Page ********* */
+
+.filter {
+  padding-top: 80px;
+  height: 450px;
+  background-color: rgba(107, 203, 166, 0.358);
+  position: sticky;
+  top: 30px;
+}
+
+.filterDiv label{
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+}
+
+.filterKey p{
+  display: inline;
+  font-size: smaller;
+}
+
+#redWord{
+  color: red;
+}
+
+/* ******** Menu Page ********* */
+
+.mealsContainer{
+  margin-top: 40px;
+}
+
+.mealCardContainer{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+}
+
+.mealcard {
+  height: 350px;
+  padding-top: 25px;
+  transition: all .2s ease-in-out;
+}
+
+.mealcard:hover{
+  box-shadow: 5px 5px 10px 2px rgba(19, 178, 199, 0.486);
+  transform: scale(1.05); 
+}
+
+.mealcard h4{
+  font-family: 'Lora', serif;
+}
+.mouseOverDesc p{
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-weight: 800;
+}
+
+.mouseOverDescImage{
+  position: center;
+  height: 200px;
+  width: 200px;
+  opacity: 20%;
+}
+
+.menuCardImage {
+  height: 200px;
+  width: 200px;
+}
+
+#price{
+padding-left: 130px; 
+position: absolute;
+bottom: 0;
+}
+
+/* ******** About Page ********* */
+#founderimg {
+  height: 220px;
+  width: 280px;
+}
+
+.about.container h3{
+  font-family: 'Satisfy', cursive;
+}
+
+.about.container p{
+  font-family: 'Signika', sans-serif;
+}
+
+.firstAboutRow{
+  margin-top: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: large;
+  background-color: rgba(233, 225, 195, 0.4);
+
+}
+
+.secondAboutRow{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: large;
+  background-color: rgba(107, 203, 166, 0.358);
+}
+.aboutBlurb p{
+  margin-right: 30px;
+
+}
+
+.founder p{
+  margin-left: 30px;
+}
+.amandaPic img{
+  margin-right: -50px;
+  margin-top: 10px;
+  box-shadow: 5px 5px 10px 2px rgba(128, 124, 124, 0.445);
+}
+
+/* ******** Cart Page ********* */
+
+.cartContainer h2{
+  padding-top: 50px;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+.cartContainer{
+  padding-bottom: 50px;
+}
+.orderCards h4{
+  font-family: 'Signika', sans-serif;
+}
+
+.orderCards img{
+  height: 300px;
+  width: 300px;
+}
+
+.orderCards {
+  position: relative;
+} 
+
+.orderCards li {
+  list-style-type: none;
+}
+
+#trashcanBtn{
+  position: absolute;
+  top: 80px;
+  right: 525px;
+}
+
+/* ******** previous purchases Page ********* */
+
+.prevOrderCard img{
+  height: 100xpx;
+  width: 100px;
+}
+
+.prevOrderCard{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+}
+
+.previous-purchase{
+  font-size: larger;
+  padding-top: 50px;
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 50px;
+}
+
+.previous-purchase hr{
+  margin-top: 50px;
+}
+
+.prevpurch {
+  padding-top: 50px;
+  font-family: 'Lora', serif;
+
+}
+
+.about img{
+  height: 300px;
+  width: 400px;
+}
+
+/* ****** Mobile sizing response ****** */
+
+@media screen and (max-width: 800px) {
+  .bannerLogo img {
+    height: 80px;
+  }
+  .bannerLogo {
+    width: 100%;
+  }
+
+  .homepage iframe {
+    height: 75%;
+    width: 75%;
+  }
+
+  .homepageIcon{
+    height: 100px;
+  }
+
+  #trashcanBtn{
+    position: absolute;
+    top: 80px;
+    right: 217px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bannerLogo img {
+    height: 75px;
+  }
+  .bannerLogo {
+    width: 100%;
+  }
+
+  .homepage iframe {
+    height: 75%;
+    width: 75%;
+  }
+
+  .homepageIcon{
+    height: 70px;
+  }
+  .firstAboutRow img{
+   display: none;
+  }
+
+  .filter{
+    width: 100%;
+    height: 400px;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+  }
+  .description img {
+    width: 300px;
+    height: 300px;
+  }
+
+  #trashcanBtn{
+    position: absolute;
+    top: 80px;
+    right: 45px;
+  }
+
+  .homepage-category img{
+    height: 100px;
+    width: 100px;
+  }
 }
